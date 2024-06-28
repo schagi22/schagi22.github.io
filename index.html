@@ -70,7 +70,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Impressum</title>
+    <title>Startseite</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -80,6 +80,7 @@
             padding: 20px;
         }
         .impressum-container {
+            display: none;
             background-color: #fff;
             border: 1px solid #ccc;
             padding: 20px;
@@ -87,12 +88,14 @@
             max-width: 800px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        h1 {
-            color: #444;
+        footer {
+            text-align: center;
+            margin-top: 20px;
         }
         a {
             color: #888;
             text-decoration: none;
+            cursor: pointer;
         }
         a:hover {
             color: #555;
@@ -100,7 +103,12 @@
     </style>
 </head>
 <body>
-    <div class="impressum-container">
+    <h1>Willkommen auf meiner Webseite</h1>
+    <p>Hier ist der Inhalt deiner Webseite.</p>
+    <footer>
+        <a id="toggle-impressum">Impressum anzeigen</a>
+    </footer>
+    <div id="impressum" class="impressum-container">
         <h1>Impressum</h1>
         <p>Angaben gemäß § 5 TMG</p>
         <p><strong>Dein Firmenname</strong><br>
@@ -120,8 +128,17 @@
         <p><strong>Umsatzsteuer-ID:</strong><br>
         Umsatzsteuer-Identifikationsnummer gemäß §27a Umsatzsteuergesetz: DE123456789</p>
     </div>
+    <script>
+        document.getElementById('toggle-impressum').addEventListener('click', function() {
+            var impressum = document.getElementById('impressum');
+            if (impressum.style.display === 'none' || impressum.style.display === '') {
+                impressum.style.display = 'block';
+                this.textContent = 'Impressum verbergen';
+            } else {
+                impressum.style.display = 'none';
+                this.textContent = 'Impressum anzeigen';
+            }
+        });
+    </script>
 </body>
 </html>
-
-
-        
